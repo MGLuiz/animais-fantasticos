@@ -15,6 +15,13 @@ body {
     display: grid;
     grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
+body::-webkit-scrollbar{
+    width: 18px;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #feae4b;
+    border-right: 4px solid #e7e9c4;
+}
 
 img{
     width: 100%;
@@ -156,8 +163,9 @@ header .menu ul li a{
 
 footer{
     grid-column: 3 / 5;
-    background-color: #ec6c2b;
+    background-color: #feae4b;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 20px;
     font-family: "IBM Plex Mono", monospace;
     color: #35352b;
@@ -165,4 +173,43 @@ footer{
     text-transform: uppercase;
     font-size: 0.875rem;
     letter-spacing: .1rem;
+}
+
+@media (max-width: 700px) {
+    header{
+        margin-top: 0;
+        grid-column: 1 / 4;
+    }
+
+    .grid-section:nth-child(n){
+        padding: 0 10px;
+    }
+
+    .title{
+        font-size: 3rem;
+        padding-left: 10px;
+    }
+
+    .animais-images{
+        grid-column: 1 / 2;
+    }
+
+    .aniamais-desc{
+        grid-column: 2 / 4;
+    }
+
+    .FAQ-lista{
+        grid-column: 1 / 4;
+        margin-bottom: 2rem;
+    }
+
+    .contato .mapa,
+    .contato .contato-infos{
+        grid-column: 1 / 4;
+    }
+
+    footer{
+        grid-column: 1 / 4;
+        margin-bottom: 0;
+    }
 }
