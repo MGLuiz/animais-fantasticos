@@ -150,6 +150,8 @@ header .menu ul li a{
     margin-top: 2rem;
     margin-bottom: .5rem;
     color: #ec6c2b;
+    cursor: pointer;
+    user-select: none;
 }
 
 .FAQ-lista dt::before{
@@ -160,6 +162,27 @@ header .menu ul li a{
     margin-right: 10px;
     background-color: #feae4b;
 }
+.FAQ-lista dt::after{
+    content: "↴";
+    margin-left: 10px;
+}
+
+.FAQ-lista dt.active::after{
+    content: "↥";
+    margin-left: 10px;
+}
+
+.FAQ-lista dd{
+    height: 0;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.FAQ-lista dd.active{
+    height: 5rem;
+}
+
+/* CONTACT SECTION */
 
 .contato .mapa{
     grid-column: 2;
@@ -196,6 +219,7 @@ footer{
     letter-spacing: .1rem;
 }
 
+/* Responsividade */
 @media (max-width: 700px) {
     header{
         margin-top: 0;

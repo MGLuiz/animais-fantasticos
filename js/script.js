@@ -1,11 +1,12 @@
+import initSmoothScroll from "./modules/smoothScroll.js";
+import initAccordion from "./modules/accordion.js";
+
 function animDesc_tabNav(){
     const aniImages = document.querySelectorAll('.animais-images li');
     const aniDescItens = document.querySelectorAll('.animais-desc-item');
-    console.log(aniImages);
-    console.log(aniDescItens);
     
     aniImages.forEach((img, index) => {
-        aniImages[index].addEventListener('click', () => {
+        img.addEventListener('click', () => {
             aniDescItens.forEach((item) => {
                 item.classList.remove('active');
             });
@@ -15,29 +16,12 @@ function animDesc_tabNav(){
 }
 animDesc_tabNav();
 
+initSmoothScroll();
+initAccordion();
 
-function smoothScroll(scroll){
-    function getDistanceFromTheTop(element) {
-        const id = element.getAttribute('href');
-        return document.querySelector(id).offsetTop;
-    }
-    function nativeScroll(distanceFromTheTop){
-        window.scroll({
-            top: distanceFromTheTop,
-            behavior:'smooth'
-        })
-    }
-
-    function scrollToSection(evt){
-        evt.preventDefault();
-        const distanceFromTheTop = getDistanceFromTheTop(evt.target);
-        nativeScroll(distanceFromTheTop);
-    }
-
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach((link) => {
-        link.addEventListener('click', scrollToSection);
+function intiScrollDownAnimation(){
+    const btnScrollDown = document.querySelector('.scroll-down-btn');
+    btnScrollDown.addEventListener('click', () => {
+        smoothScroll.scrollDown();
     });
 }
-
-smoothScroll();
